@@ -1,0 +1,34 @@
+  <div class="header">
+    <h1>Desencriptando a Julio César</h1>
+    <i>Hernán Guillermo Dulcey Morán</i><br> 
+    <i>Karla Jacquelin Guzmán Sánchez</i>
+  </div>
+<div id="opciones">
+
+  <div class="labels">
+    <h3>Texto a descifrar: 
+    <input type="text" [(ngModel)] = "frase" placeholder="frase"/> 
+  
+
+  <button (click)="obtenerFrases()">
+    Seleccionar
+  </button>
+
+
+  <div id="solucion" *ngIf="encryptionService.mostrarSolucion()">
+    <h3>Soluciones</h3>
+    <div *ngFor="let solucion of encryptionService.frases; let indice = index">      
+    <table style="white-space: pre;">
+        <tbody>
+          <div>
+            <td> 
+              Frase: {{ solucion }}
+            </td>
+            <td> 
+              Palabras en inglés: {{ solucion.split(" ").length - encryptionService.puntaje[indice] }}
+            </td>
+          </div>
+      </tbody>
+    </table>      
+  </div>
+</div>
